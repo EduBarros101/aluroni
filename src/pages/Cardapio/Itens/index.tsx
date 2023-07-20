@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Item from './Item'
-import cardapio from './itens.json'
+import cardapio from 'data/cardapio.json'
 import styles from './Itens.module.scss'
 
 interface Props {
@@ -28,17 +28,17 @@ export default function Itens(props: Props) {
 
   function ordenar(novalista: typeof cardapio) {
     switch (ordenador) {
-      case 'porcao':
-        return novalista.sort((a, b) => (a.size > b.size ? 1 : -1))
+    case 'porcao':
+      return novalista.sort((a, b) => (a.size > b.size ? 1 : -1))
 
-      case 'qtd_pessoas':
-        return novalista.sort((a, b) => (a.serving > b.serving ? 1 : -1))
+    case 'qtd_pessoas':
+      return novalista.sort((a, b) => (a.serving > b.serving ? 1 : -1))
 
-      case 'preco':
-        return novalista.sort((a, b) => (a.price > b.price ? 1 : -1))
+    case 'preco':
+      return novalista.sort((a, b) => (a.price > b.price ? 1 : -1))
 
-      default:
-        return novalista
+    default:
+      return novalista
     }
   }
 
